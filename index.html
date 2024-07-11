@@ -43,12 +43,13 @@
         id="valorEscritural"
         placeholder="Digite o valor total escritural"
       />
-      <button onclick="calcularLMC()">Calcular</button>
+      <button onclick="calcularLMC('adicionar')">Adicionar 0,6%</button>
+      <button onclick="calcularLMC('remover')">Remover 0,6%</button>
       <div class="result" id="resultado"></div>
     </div>
 
     <script>
-      function calcularLMC() {
+      function calcularLMC(acao) {
         var valorEscritural = parseFloat(
           document.getElementById("valorEscritural").value
         );
@@ -58,7 +59,12 @@
           return;
         }
         var perdaSobra = (valorEscritural * 0.6) / 100;
-        var resultadoFinal = valorEscritural + perdaSobra;
+        var resultadoFinal;
+        if (acao === "adicionar") {
+          resultadoFinal = valorEscritural + perdaSobra;
+        } else if (acao === "remover") {
+          resultadoFinal = valorEscritural - perdaSobra;
+        }
         document.getElementById("resultado").innerText =
           "Resultado Final: " + resultadoFinal.toFixed(2);
       }
