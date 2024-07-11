@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Perda e Sobra do LMC</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 50px;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      input,
+      button {
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .result {
+        font-size: 1.2em;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Calculadora de Perda e Sobra do LMC</h2>
+      <label for="valorEscritural">Valor Total Escritural:</label>
+      <input
+        type="number"
+        id="valorEscritural"
+        placeholder="Digite o valor total escritural"
+      />
+      <button onclick="calcularLMC()">Calcular</button>
+      <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+      function calcularLMC() {
+        var valorEscritural = parseFloat(
+          document.getElementById("valorEscritural").value
+        );
+        if (isNaN(valorEscritural)) {
+          document.getElementById("resultado").innerText =
+            "Por favor, insira um valor válido.";
+          return;
+        }
+        var perdaSobra = (valorEscritural * 0.6) / 100;
+        var resultadoFinal = valorEscritural + perdaSobra;
+        document.getElementById("resultado").innerText =
+          "Resultado Final: " + resultadoFinal.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
