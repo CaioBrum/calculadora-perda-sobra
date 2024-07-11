@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Perda e Sobra do LMC</title>
+    <!-- Estilo da ferramenta-->
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -32,6 +33,12 @@
         font-size: 1.2em;
         margin-top: 20px;
       }
+      .copy-btn {
+        background-color: #007bff;
+      }
+      .copy-btn:hover {
+        background-color: #0056b3;
+      }
     </style>
   </head>
   <body>
@@ -43,9 +50,13 @@
         id="valorEscritural"
         placeholder="Digite o valor total escritural"
       />
+      <!--Alterar texto dos botões-->
       <button onclick="calcularLMC('adicionar')">Adicionar 0,6%</button>
       <button onclick="calcularLMC('remover')">Remover 0,6%</button>
       <div class="result" id="resultado"></div>
+      <button class="copy-btn" onclick="copiarResultado()">
+        Copiar Resultado
+      </button>
     </div>
 
     <script>
@@ -58,6 +69,7 @@
             "Por favor, insira um valor válido.";
           return;
         }
+        //Alterar valor a ser calculado
         var perdaSobra = (valorEscritural * 0.6) / 100;
         var resultadoFinal;
         if (acao === "adicionar") {
@@ -66,7 +78,18 @@
           resultadoFinal = valorEscritural - perdaSobra;
         }
         document.getElementById("resultado").innerText =
-          "Resultado Final: " + resultadoFinal.toFixed(2);
+          //Alterar quantas casas decimais e se aparece como ponto ou vírgula.
+          "Resultado Final: " + resultadoFinal.toFixed(2).replace(".", ",");
+      }
+
+      function copiarResultado() {
+        var resultado = document.getElementById("resultado").innerText;
+        if (resultado) {
+          navigator.clipboard
+            .writeText(resultado)
+            .then(() => alert("Resultado copiado!"))
+            .catch((err) => console.log("Algo deu errado", err));
+        }
       }
     </script>
   </body>
