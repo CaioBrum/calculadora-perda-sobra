@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo do corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  margin: 50px;
+}
+
+/* Estilo do container */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Estilo dos elementos de entrada e botões */
+input,
+button {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+/* Estilo do botão padrão */
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Adiciona transição suave */
+}
+
+/* Estilo do botão ao passar o mouse */
+button:hover {
+  background-color: #45a049;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Estilo do botão de copiar */
+.copy-btn {
+  background-color: #007bff;
+}
+
+/* Estilo do botão de copiar ao passar o mouse */
+.copy-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Estilo do resultado */
+.result {
+  font-size: 1.2em;
+  margin-top: 20px;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.2);
+}
